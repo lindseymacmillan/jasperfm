@@ -1,0 +1,16 @@
+.searchBar {
+    display: flex;
+    align-items: center;
+}
+
+.searchInput > div {
+    margin-bottom: 0!important;
+}
+
+.searchInput > input {
+    height: 28px;
+}
+
+.button {
+    margin-left: 8px!important;
+}

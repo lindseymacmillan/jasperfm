@@ -1,0 +1,11 @@
+.introCard {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-column-gap: 12px;
+}
+
+.typeButtons {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 12px;
+}

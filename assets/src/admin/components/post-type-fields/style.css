@@ -1,0 +1,25 @@
+.fieldactions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.fieldlabel {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline;
+}
+
+.fieldrow {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-column-gap: 12px;
+}
+
+.fieldsfooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}

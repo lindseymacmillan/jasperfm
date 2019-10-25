@@ -1,0 +1,9 @@
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggle > div {
+    margin-bottom: 0px!important;
+}

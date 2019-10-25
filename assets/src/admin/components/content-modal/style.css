@@ -1,0 +1,14 @@
+.modal {
+    min-height: 60vh;
+}
+
+.toggle, .toggle > div {
+    margin-bottom: 0px!important;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+}
