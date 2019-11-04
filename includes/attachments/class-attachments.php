@@ -15,40 +15,21 @@ defined( 'ABSPATH' ) || exit;
 class Attachments {
 
 	public function init() {
-        self::includes();
-        self::modify_attachments();
+        add_action( 'wp_enqueue_media', [__CLASS__, 'modify_media_library'] );
     }
     
-    private function includes() {
-
-		//Include ACF Fields
-        //include_once JASPERFM_ACF_PATH . 'acf.php';
-        
-    }
-    
-    private function modify_attachments() {
-
-        //add_filter( 'attachment_fields_to_edit', [__CLASS__, 'my_add_attachment_location_field'], 10, 2 );
-        
-        add_action( 'admin_enqueue_scripts', [__CLASS__, 'wpdocs_selectively_enqueue_admin_script'] );
+    public function modify_media_library() {
+        add_action( 'admin_print_footer_scripts', [__CLASS__, 'override_two_column_template'], 11 );
+        add_action( 'admin_print_footer_scripts', [__CLASS__, 'override_attachment_details_template'], 11 );
     }
 
-    function wpdocs_selectively_enqueue_admin_script( $hook ) {
-        // if ( 'edit.php' != $hook ) {
-        //     return;
-        // }
-        wp_enqueue_script( 'jasperfm-attachments', JasperFM::plugin_url() . '/assets/dist/attachments.bundle.js', array(), '1.0' );
+    public function override_two_column_template() {
+		include_once JASPERFM_ABSPATH . 'includes/attachments/two-column-template.php';
     }
-    
-    function my_add_attachment_location_field( $form_fields, $post ) {
-        //$field_value = get_post_meta( $post->ID, 'location', true );
-        $mime_type = $post->post_mime_type;
-        $form_fields["custom1"] = array(
-            "label" => __("Custom Text Field"),
-            "input" => "text", // this is default if "input" is omitted
-            "value" => $mime_type
-        );
-        return $form_fields;
+
+    public function override_attachment_details_template() {
+		include_once JASPERFM_ABSPATH . 'includes/attachments/attachment-details-template.php';
     }
-}
+
+}   
 Attachments::init();

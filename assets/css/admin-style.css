@@ -1,0 +1,48 @@
+.media-types.media-types-required-info  {
+    display: none;
+}
+
+.media-sidebar {
+    width: 300px;
+}
+
+.attachments-browser .attachments, .attachments-browser .uploader-inline {
+    right: 336px;
+}
+
+.attachments-browser .media-toolbar {
+    right: 336px;
+}
+
+.attachment-details .setting label, .media-sidebar .setting label {
+    display: inline-block;
+    min-width: 30%;
+    text-align: right;
+}
+
+.attachment-details .setting textarea, .compat-item .field textarea, .media-sidebar .setting textarea {
+    border-radius: 3px;
+    border: 1px solid #aaa;
+}
+
+.attachment-details .setting input[type=email], .attachment-details .setting input[type=number], .attachment-details .setting input[type=password], .attachment-details .setting input[type=search], .attachment-details .setting input[type=tel], .attachment-details .setting input[type=text], .attachment-details .setting input[type=url], .attachment-details .setting textarea, .attachment-details .setting+.description, .media-sidebar .setting input[type=email], .media-sidebar .setting input[type=number], .media-sidebar .setting input[type=password], .media-sidebar .setting input[type=search], .media-sidebar .setting input[type=tel], .media-sidebar .setting input[type=text], .media-sidebar .setting input[type=url], .media-sidebar .setting textarea {
+    border-radius: 3px;
+    border: 1px solid #aaa;
+}
+
+.acf-field input[type="text"], .acf-field input[type="password"], .acf-field input[type="number"], .acf-field input[type="search"], .acf-field input[type="email"], .acf-field input[type="url"], .acf-field textarea {
+    border-radius: 3px;
+    border: 1px solid #aaa;
+}
+
+.acf-field.jfm-hidden-label {
+    padding-top: 0!important;
+}
+
+.acf-field.jfm-hidden-label .acf-label label {
+    display: none;
+}
+
+.acf-image-uploader .acf-button {
+    margin-left: 8px!important;
+}

@@ -53,7 +53,6 @@ module.exports = {
 	entry: {
 		distribution: './src/admin/screens/distribution/index.js',
 		editor: './src/editor/index.js',
-		attachments: './src/admin/attachments/index.js',
 	},
 
 	output: {

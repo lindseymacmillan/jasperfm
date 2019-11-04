@@ -85,8 +85,14 @@ final class JasperFM {
 		//Include ACF
 		include_once JASPERFM_ACF_PATH . 'acf.php';
 
+		//Include ACF Fields
+		include_once JASPERFM_ABSPATH . 'includes/fields/acf-fields.php';
+
 		//Modify attachments
 		include_once JASPERFM_ABSPATH . 'includes/attachments/class-attachments.php';
+
+		//Include blocks
+		include_once JASPERFM_ABSPATH . 'includes/blocks/blocks.php';
 	}
 
 	/**
@@ -97,14 +103,19 @@ final class JasperFM {
 	public function init() {
 		$this->manage_site_options();
 		//add_action( 'init', [$this, 'register_dashboard_taxonomy'], 0 );
-		//add_action( 'init', [$this, 'register_post_types'], 0 );
+		add_action( 'admin_enqueue_scripts', [__CLASS__, 'enqueue_admin_styles'], 0 );
 
 		// Customize ACF url setting to fix incorrect asset URLs.
 		add_filter('acf/settings/url', [__CLASS__, 'acf_settings_url']);
+		add_filter('acf/settings/show_admin', [__CLASS__, 'acf_settings_show_admin']);
 	}
 
 	public function acf_settings_url( $url ) {
 		return JASPERFM_ACF_URL;
+	}
+
+	function acf_settings_show_admin( $show_admin ) {
+		return false;
 	}
 
 	protected function manage_site_options() {
@@ -115,6 +126,16 @@ final class JasperFM {
         } else {
             self::$options = $jasperfmOptions;
         }
+	}
+
+	public function enqueue_admin_styles() {
+		wp_register_style(
+			'jfm-admin-style',
+			plugins_url( '/', JASPERFM_PLUGIN_FILE ) . 'assets/css/admin-style.css',
+			false, 
+			'1.0.0' 
+		);
+        wp_enqueue_style( 'jfm-admin-style' );
 	}
 
 	/**
